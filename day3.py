@@ -1,6 +1,8 @@
 file = open("day3puzzleinput.txt", "r")
 array_of_rucksacks = file.read().split('\n')
 
+# testing
+
 # text = """vJrwpWtwJgWrhcsFMMfFFhFp
 # jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 # PmmdzqPrVvPwwTWBwg
@@ -10,22 +12,17 @@ array_of_rucksacks = file.read().split('\n')
 # array_of_rucksacks = text.split('\n')
 # # print(array_of_rucksacks)
 # print(array_of_rucksacks)
+
 priorities = "-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 priorities_map = {}
 
 for i in range(len(priorities)):
     priorities_map[priorities[i]] = i
-# print(array_of_rucksacks[0])
-# test = array_of_rucksacks[7]
-# print(len(test) % 2 == 0, "EVNE LENGTH")
-# half_point = len(test) // 2
-# print(test)
-# print(test[0:half_point], "FIRST HALF")
-# print(test[half_point:], "SECOND HALF")
+
 total_priority = 0
 
 for rucksack in array_of_rucksacks:
-    # print(total_priority)
+
     half_point = len(rucksack) // 2
     first_half = rucksack[0:half_point]
     second_half = rucksack[half_point:]
@@ -39,9 +36,6 @@ for rucksack in array_of_rucksacks:
     for letter in second_half:
         if letter in types:
             total_priority += priorities_map[letter]
-            print("FOUND ONE ON", rucksack)
             break
-    # print(types, "OVERLAPPING CHARACTERS")
 
-# print(priorities_map)
 print(total_priority)
